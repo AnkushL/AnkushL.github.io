@@ -1,102 +1,454 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>Resume - Ankush Lanjewar</title>
-	</head>
-	<body style="background-color: #e9ecf2;">
-		<style type="text/css"></style>
-		<style type="text/css">
-			.circular--square { 
-				border-radius: 50%; 
-				height: 300px;
-				float: left;
-	  			width: 20%;
-	  			padding: 10px;
-			}
-			.text_center{
-				text-align: center;
-			}
-			.new{
-				display: flex;
-	  			align-items: center;
-	  			justify-content: center
-				font-size: 20px;
-	  			padding: 20px;
-			}
-			.bg {
-	  			/* The image used */
-	  			background-image: url("blue.jpg");
-	  			float: right;
-	  			height: 08px;
-	  			width: 100%;
-	  
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Student Registration Form - Provisional Admission</title>
+	<link rel="shortcut icon" href="icon.png">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+	<style type="text/css">
+		body{
+            font-family: 'Roboto', sans-serif;
+            padding: 0;
+            margin: 0;
+            background-color: #f2f2f2;
+        }
+		.top-bar{
+            background-color: #272727;
+            color: #e8e8e8;
+            padding: 10px 0;
+            font-size: .9em;
+            box-shadow: 0px 2px 3px #999;
+        }
+        .top-bar ul.inline{
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        .top-bar ul.inline li{
+            display: inline;
+        }
+        .top-bar a{
+            color: #e2e2e2;
+            text-decoration: none;
+        }
+        .container{
+            width: 984px;
+            padding: 0 20px;
+            text-align: left;
+        }
+        .inline{
+            display: inline;
+        }
+        div.a{
+        	/*border: 1px solid black;*/
+			background-color: white;
+			padding-top: 5px;
+			padding-right: auto;
+			padding-left: 90px;
+        }
+        .responsive{
+			width: 100%;
+			max-width: 150px;
+			height: 100%;
+			padding-top: 5px;
+			padding-bottom: 10px;
+		}
+		div.GRBF{
+		 	background-color: none;
+		}
+		div.PRF{
+			background-color: none;
+		}
+		@media screen and (min-width: 780px){ /*1st-S1*/
+			div.GRBF{
+		    	font-size: 30px;
+		    	color: #d05241;
+		    	font-weight: bold;
+		  	}
+		}
+		@media screen and (min-width: 880px){/*2nd-S1*/
+			div.PRF{
+		    	font-size: 42px;
+		    	color: #F86060;
+		  		font-family: Arial;
+		  	}
+		}
+		@media screen and (max-width: 779.9px){/*1st/S2*/
+			div.GRBF{
+		    	font-size: 25px;
+		    	color: #d05241;
+		    	font-weight: bold;
+		  	}
+		}
+		@media screen and (max-width: 709.9px){/*1st-S3*/
+			div.GRBF{
+		    	font-size: 20px;
+		    	color: #d05241;
+		    	font-weight: bold;
+		  	}
+		}
+		@media screen and (max-width: 879.9px){/*2nd-S2*/
+			div.PRF{
+		    	font-size: 37px;
+		    	color: #F86060;
+		  		font-family: Arial;
+		  	}
+		}
+		@media screen and (max-width: 775px){/*2nd-S3*/
+			div.PRF{
+		    	font-size: 32px;
+		    	color: #F86060;
+		  		font-family: Arial;
+		  	}
+		}
+		@media screen and (max-width: 710px){/*2nd-S4*/
+			div.PRF{
+		    	font-size: 27px;
+		    	color: #F86060;
+		  		font-family: Arial;
+		  	}
+		}
+		@media screen and (max-width: 640px){/*2nd-S5*/
+			div.PRF{
+		    	font-size: 22px;
+		    	color: #F86060;
+		  		font-family: Arial;
+		  	}
+		}
+		@media screen and (max-width: 590px){/*2nd-S3*/
+			div.PRF{
+		    	font-size: 17px;
+		    	color: #F86060;
+		  		font-family: Arial;
+		  		font-weight: bold;
+		  	}
+		}
+		hr{
+	        position: relative;
+	        height: 30px;
+	        background: #f85b5b;
+	        padding-top: 0;
+	        padding-bottom: 0;
+	    }
+	    blockquote{
+		  padding: 10px 10px 25px 15px;
+		  /*border: 1.5px #BFBFBF;*/
+		  background-color: #F6F6F6;
+		  box-shadow: 0px 0px 10px 10px #E8E8E8;
+		  margin-left: 100px;
+		  margin-right: 100px;
+		  margin-top: 30px;
+		  margin-bottom: 30px;
+		}
+		.contain{
+			width: 30%;
+			padding: 10px;
+			border: 1.5px solid #f85b5b;/*#ffa603*/
+			border-radius: 20px;
+			background-color: none;
+		}
+		.input{
+		  	width: 50%;
+		  	padding: 9px;
+		  	border: 1px solid #15B9C6;
+		  	border-radius: 15px;
+		  	background-color: #FFFFFF;
+		}
+		.input-S{
+		  	width: 50%;
+		  	padding: 9px;
+		  	border: 0.5px solid #15B9C6;
+		  	border-radius: 10px;
+		  	background-color: #FFFFFF;
+		}
+		.form-inline{  
+		  	display: flex;
+		  	flex-flow: row wrap;
+		  	align-items: center;
+		}
+		.form-inline label{
+		  	margin: 5px 10px 5px 0;
+		}
+		.form-inline input{
+		  	vertical-align: middle;
+		  	margin: 5px 10px 5px 0;
+		  	padding: 10px;
+		  	background-color: #fff;
+		  	border: 1px solid #ddd;
+		}
+		.form-inline button{
+		  	padding: 10px 20px;
+		  	background-color: dodgerblue;
+		  	border: 1px solid #ddd;
+		  	color: white;
+		  	cursor: pointer;
+		}
+		.form-inline button:hover{
+		  	background-color: royalblue;
+		}
+		@media (max-width: 800px){
+		  	.form-inline input{
+		    	margin: 10px 0;
+		  	}
+		  	.form-inline{
+		    	flex-direction: column;
+		    	align-items: stretch;
+		  	}
+		}
+	</style>
+</head>
+<body onload="display_date_time()">
+	<header>
+		<div class="top-bar">
+	        <div class="container d-flex justify-content-between">
+	            <ul class="inline">
+	                <li class="hide-on-mid hide-on-small" id="ddt"></li>
+	            </ul>
+	            <ul class="inline">
+	                <li class="hide-on-mid hide-on-small" style="font-weight: bold;">
+	                    <a href="#">For Academic Year 2022-23</a>
+	                </li> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	               
+	                <li class="hide-on-mid hide-on-small">|</li>
 
-			  	/* Center and scale the image nicely */
-			  	background-position: center;
-			  	background-repeat: no-repeat;
-			  	background-size: cover;
+	                <li class="hide-on-mid hide-on-small">Home</li>
+	                <li class="hide-on-mid hide-on-small">|</li>
+	                <li style="background-color: #565656; padding: 2px 5px;">
+	                    <a href="#">A-</a>
+	                </li>
+	                <li style="background-color: #565656; padding: 2px 5px;">
+	                    <a href="#">A</a>
+	                </li>
+	                <li style="background-color: #565656; padding: 2px 5px;">
+	                    <a href="#">A+</a>
+	                </li>
+	                <li style="margin-left: 5px;">Hindi</li>
+	            </ul>
+	        </div>
+	    </div>
+	</header>
+	<script type="text/javascript">
+		const weekday = ["Sun","Mon","Tue","Thu","Fri","Sat"];
+		const month = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+		function display_date_time(){
+			var d = new Date();
+			var f = d.getHours( ) >= 12 ? ' PM' : ' AM';
+			var h = d.getHours( ) % 12;
+			h = h ? h : 12;
+			let day = weekday[d.getDay()-1];
+			var date = d.getDate();
+			var m = month[d.getMonth()];
+			var year = d.getFullYear();
+			var time = h+":"+d.getMinutes()+":"+d.getSeconds()+" "+f;
+			document.getElementById('ddt').innerHTML = day+"  "+m+"  "+date+"  "+time+"  IST  "+year;
+			refresh();
+		}
+		function refresh(){
+			var load=1000;
+			mytime = setTimeout('display_date_time()',load)
+		}
+		refresh();
+		function verify(){
+				var fname = document.getElementById("fname");
+				var mname = document.getElementById("mname");
+				var lname = document.getElementById("lname");
+				var gender = document.getElementsByName("gender");
+				var pass = document.getElementById("pass");
+				var pnum = document.getElementById("pnum");
+				var fnum = document.getElementById("fnum");
+				var mnum = document.getElementById("mnum");
+				var adhr_no = document.getElementById("acn");
+				var mail = document.getElementById("e-mail");
+				var ssc_s = document.getElementById("sscs");
+				var hsc_s = document.getElementById("hscs");
+				var cet_id = document.getElementById("cetid");
+				var cet_s = document.getElementById("cets");
+				var jee_id = document.getElementById("jeeid");
+				var jee_s = document.getElementById("jees");
+				var msg = new Array();
+				var flag = 1;
+				var message = "Following Details are Required\n";
+				var message2 = "Following Details are Required<br>";
+				/*if(fname.value == ""){
+					msg[0] = "First Name is Required";
+					flag = 0;
+				}else if(mname.value == ""){
+					msg[0] = "Middle Name is Required";
+					flag = 0;
+				}else if(lname.value == ""){
+					msg[0] = "Last Name is Required";
+					flag = 0;
+				}else{
+					msg[0] = "";
+				}
+				if(gender[0].checked == false && gender[1].checked == false){
+					msg[1] = "Select Gender";
+					flag = 0;
+				}else{
+					msg[1] = "";
+				}
+				if(pass.value == ""){
+					msg[2] = "Password is Required";
+					flag = 0;
+				}else{
+					msg[2] = "";
+				}
+				if(pass.value.length < 8){
+					msg[3] = "Password must be 8 characters long";
+					flag = 0;
+				}else{
+					msg[3] = "";
+				}*/
+				if(flag == 0){
+					// Show Error Messages
+					for(var x=0;x<=3;x++){
+						if(msg[x] != ""){
+							message += msg[x] + "\n";
+							message2 += msg[x] + "<br>";
+						}
+					}
+					alert(message);
+					document.getElementById("abc").innerHTML = "<p style='color:red;'>"+message2+"</p>";
+					return false;
+				}else{
+					return true;
+				}
 			}
-			.tab{
-				tab-size: 4;
-				left-margin: 50px;
-			}
-		</style>
-		<hr width="100%;" color="#111111" size="10">
-		<br>
-		<h1 align="center"><u>Resume</u></h1>
-		<br>
-		<hr width="100%;" color="#111111" size="10">
-		<br>
+		/*function submit(){
+		  	document.getElementById("submit").innerHTML = "<h2 style='color: red'>Done..</h2>";
+		}*/
+	</script>
 
-		<img class="circular--square" src="ank.JPG" />
+	<div class="a d-flex">
+		<!--<img src="img/SBJIT.jpg" class="a">-->
+		<img src="SBJIT.jpg" class="responsive" width="200" height="100">
+		<ul style="list-style-type: none">
+			<li><div class="GRBF" style="padding-top: 18px;">GET READY FOR BRIGHT FUTURE</div></li>
+			<li>An Autonomus Institute</li>
+			<li>Provisional Admission</li>
+			<li>Student Registration Form</li>
+   		</ul>
+	</div>
+	<hr />
+	<div align="center" style="background-color: #FFFFFF;">
 		<br>
+		<blockquote>
+			<div class="PRF" style="padding-top: 15px; padding-bottom: 25px;">Provisional Registration Form</div>
+			<form method="post" action="" onSubmit="return verify()">
+		    	<table border="0" cellspacing="0" cellpadding="10">
+			       	<tr class="contain">
+				       	<td><b>Name of Student:</b></td>
+				        <td class="form-inline">
+				        	<input class="input" type="text" name="fname" id="fname" placeholder="First Name" required />
+				        	<input class="input" type="text" name="mname" id="mname" placeholder="Middle Name" required />
+				        	<input class="input" type="text" name="lname" id="lname" placeholder="Last Name" required />
+				        </td>
+			       	</tr>
+			       	<tr class="contain">
+			       		<td><b>Date of Birth (DD/MM/YYYY)</b></td>
+			       		<td><input class="input-S" type="Date" name="bday" id="bday" min="2000-01-01" max="2007-01-01" required /></td>
+			       	</tr>
+			       	<tr class="contain">
+				       	<td><b>Gender:</b></td>
+				        <td class="form-inline">
+				        	<input type="radio" name="gender" value="Male"/>Male&nbsp;
+			        		<input type="radio" name="gender" value="Female"/>Female&nbsp;
+			        		<input type="radio" name="gender" value="other"/>Other     
+			        	</td>
+			        </tr>
+			        <tr class="contain">
+			        	<td><b>Mobile Number</b></td>
+			        	<td class="form-inline">
+			        		<input type="text" class="input" name="pnum" id="pnum" max-length="10" placeholder="Personal Number" required />
+			        		<input type="text" class="input" name="fnum" id="fnum" max-length="10" placeholder="Father's Number" required />
+			        		<input type="text" class="input" name="mnum" id="mnum" max-length="10" placeholder="Mother's Number" required />
+			        	</td>
+			        </tr>
+			        <tr class="contain">
+			        	<td><b>Aadhar Card Number</b></td>
+			        	<td class="form-inline">
+			        		<input class="input" type="acn" name="acn" id="acn" placeholder="Aadhar Card Number" maxlength="12" required />
+			        		<input type="file" name="acf" id="acf" required />
+			        	</td>
+			        </tr>
+			        <tr class="contain">
+			        	<td><b>E-mail I'd</b></td>
+			        	<td><input class="input-S" type="email" name="e-mail" id="e-mail" placeholder="E-mail I'd" required /></td>
+			        </tr>
+			        <tr class="contain">
+			        	<td><b>SSC Score</b></td>
+			        	<td class="form-inline">
+			        		<input class="input" type="text" name="sscs" id="sscs" max-length="5" placeholder="SSC Score in %" required />
+			        		<input type="file" name="sscf" id="sscf" required />
+			        	</td>
+			        </tr>
+			        <tr class="contain">
+			        	<td><b>HSC Score</b></td>
+			        	<td class="form-inline">
+			        		<input class="input" type="text" name="hscs" id="hscs" max-length="5" placeholder="HSC Score in %" required />
+			        		<input type="file" name="hscf" id="hscf" required />
+			        	</td>
+			        </tr>
+			        <tr class="contain">
+			        	<td><b>MHT-CET Application I'd</b></td>
+			        	<td><input class="input-S" type="text" name="cetid" id="cetid" placeholder="MHT-CET Application I'd" required /></td>
+			        </tr>
+			        <tr class="contain">
+			        	<td><b>MHT-CET Score</b></td>
+			        	<td class="form-inline">
+			        		<input class="input" type="text" name="cets" id="cets" placeholder="MHT-CET Score" required />
+			        		<input type="file" name="cetf" id="cetf" required />
+			        	</td>
+			        </tr>
+			        <tr class="contain">
+			        	<td><b>JEE Application I'd</b></td>
+			        	<td><input class="input-S" type="text" name="jeeid" id="jeeid" placeholder="JEE Application I'd" required /></td>
+			        </tr>
+			        <tr class="contain">
+			        	<td><b>JEE Score</b></td>
+			        	<td class="form-inline">
+			        		<input class="input-S" type="text" name="jees" id="jees" size="5" placeholder="JEE Score" required />
+			        		<input type="file" name="jeef" id="jeef" required />
+			        	</td>
+			        </tr>
+			        <tr class="contain">
+			        	<td><b>Address</b></td>
+			        	<td class="form-inline">
+			        		<input class="input" type="text" name="addc" id="addc" placeholder="Current City" required />
+			        		<input class="input" type="text" name="addd" id="addd" placeholder="District" required />
+			        		<input class="input" type="text" name="adds" id="adds" placeholder="State" required />
+			        		<input class="input" type="text" name="pin" id="pin" max-length="6" placeholder="PinCode" required />
+			        	</td>
+			        </tr>
+			        <tr class="contain">
+			        	<td><b>Select Course</b></td>
+			        	<td>
+			        		<select class="input" id="course" name="course" placeholder="Select Course" multiple required>
+			        			<option value="cs">Computer Science & Engineering</option>
+			        			<option value="etc">Electronics & Telecommunication Engineering</option>
+			        			<option value="mech">Mechanical Engineering</option>
+			        			<option value="elect">Electrical Engineering</option>
+			        			<option value="aids">Artificial Intelligence & Data Science</option>
+			        			<option value="aiml">Artificial Intelligence & Machine Learning</option>
+			        		</select>
+			        		<p>**Hold down the Ctrl (windows) or Command (Mac) button to select multiple options.**</p>
+			        	</td>
+			        </tr>
+			        <tr>
+			        	<td align="center" colspan="2">
+			        		<input type="submit" class="btn btn-outline-primary" value="Register" />
+			        		<input type="clear" class="btn btn-outline-warning" value="Clear" />
+			        		<div id="submit"></div>
+			        	</td>
+			        </tr>
+		        </table>
+		    </form>
+		</blockquote>
 		<br>
-		<br>
-		<h1 class="text_center">About Me : </h1>
-		<table style="width:70%" class="text_center">
-		  	<tr>
-		    	<th>Name : </th>
-		    	<td> Ankush Kailas Lanjewar</td>
-		  	</tr>
-		  	<tr>
-		    	<th>Qualification : </th>
-		    	<td> Third Year B.Tech Student (Specialization in Electronics And Telecommnication)</td>
-		  	</tr>
-		  	<tr>
-		    	<th>Skills : </th>
-		    	<td> Programming Language (C, C++, Pyhton, Java, JavaScript) , Wed-Based Frameworks (Html, CSS, Django)</td>
-		  	</tr>
-		    <tr>
-		    	<th>Certifications : </th>
-		    	<td> CodeAcademy(Python , C++), HackerRank(Python, C++)</td>
-		  	</tr>
-		</table>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<hr width="100%;" color="#111111" size="8">
-		<div>&emsp;&emsp;&emsp;&emsp;Name: Ankush Kailas Lanjewar</div>
-		<br>
-		<div>&emsp;&emsp;&emsp;&emsp;Age : 20</div>
-		<br>
-		<div>&emsp;&emsp;&emsp;&emsp;Location : Kalmeshwar, Nagpur</div>
-		<br>
-		<div>&emsp;&emsp;&emsp;&emsp;E-Mail : ankushl.etc20@sbjit.edu.in</div>
-		<br>
-		<div>&emsp;&emsp;&emsp;&emsp;Mobile no. : 9309145683</div>
-		<br>
-		<div>&emsp;&emsp;&emsp;&emsp;LinkedIn : www.linkedin.com/in/ankush-lanjewar-809778217</div>
-		<br>
-		<div>&emsp;&emsp;&emsp;&emsp;GitHub : https://github.com/AnkushL</div>
-		<hr width="100%;" color="#111111" size="8">
-		<h2 class = "new">Discription : </h2>
-		<p align="justify" class="tab">I am Ankush Kailas Lanjewar, I am 20 year old . I live in Kalmeshwar, Nagpur. I have complited my 10th from Regent High School, Kalmeshwar. I have complited my intermediate from New English junior college, Mohpa. Currently I am pursing engneering (B.Tech) from S.B.Jain Institute of Technology management and research in Electronics and Telecommunication Engineering. My hobbies are playing Cricket, Chess, listening Music, Travelling and watching Tollywood movies. I am a good team worker as I have been a Joint Spports head of FEETA commitee of our college forum. And worked as a WordPress developer in IEEE PES chapter.</p>
-		<br>
-		<hr width="100%;" color="#111111" size="8">
-
-		<br>
-		<div align="center">Thank You!</div>
-	</body>
+		<footer align="center">
+			<h6>&copy; Ankush Lanjewar | Department of Electronics and Telecommunication Engineering | USN: ET20018 | S. B. Jain Institute of Technology, Management & Research, Nagpur.</h3>
+		</footer>
+	</div>
+</body>
 </html>
