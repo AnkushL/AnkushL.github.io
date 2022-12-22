@@ -241,7 +241,7 @@
 			var m = month[d.getMonth()];
 			var year = d.getFullYear();
 			var time = h+":"+d.getMinutes()+":"+d.getSeconds()+" "+f;
-			document.getElementById('ddt').innerHTML = day+"  "+m+"  "+date+"  "+time+"  IST  "+year;
+			document.getElementById('ddt').innerHTML = "<b>"+day+"  "+m+"  "+date+"  "+time+"  IST  "+year+"</b>";
 			refresh();
 		}
 		function refresh(){
