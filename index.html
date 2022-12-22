@@ -250,11 +250,29 @@
 		}
 		refresh();
 		function verify(){
-				var fname = document.getElementById("fname");
+			var pnum = document.getElementById("pnum").value;
+			var fnum = document.getElementById("fnum").value;
+			var mnum = document.getElementById("mnum").value;
+		    var lblError1 = document.getElementById("lblError1");
+		    var lblError2 = document.getElementById("lblError2");
+		    var lblError3 = document.getElementById("lblError3");
+		    lblError1.innerHTML = "";
+		    lblError2.innerHTML = "";
+			lblError3.innerHTML = "";
+		    var expr = /^(0|91)?[6-9][0-9]{9}$/;
+		    if (!expr.test(pnum)) {
+		        lblError1.innerHTML = "Invalid Mobile Number.";
+		    }
+		    if (!expr.test(fnum)) {
+		        lblError2.innerHTML = "Invalid Mobile Number.";
+		    }
+		    if (!expr.test(mnum)) {
+		        lblError3.innerHTML = "Invalid Mobile Number.";
+		    }
+			/*	var fname = document.getElementById("fname");
 				var mname = document.getElementById("mname");
 				var lname = document.getElementById("lname");
 				var gender = document.getElementsByName("gender");
-				var pass = document.getElementById("pass");
 				var pnum = document.getElementById("pnum");
 				var fnum = document.getElementById("fnum");
 				var mnum = document.getElementById("mnum");
@@ -300,8 +318,7 @@
 				}else{
 					msg[3] = "";
 				}*/
-				if(flag == 0){
-					// Show Error Messages
+				/*if(flag == 0){
 					for(var x=0;x<=3;x++){
 						if(msg[x] != ""){
 							message += msg[x] + "\n";
@@ -340,91 +357,94 @@
 			       	<tr class="contain">
 				       	<td><b>Name of Student:</b></td>
 				        <td class="form-inline">
-				        	<input class="input" type="text" name="fname" id="fname" placeholder="First Name" required />
-				        	<input class="input" type="text" name="mname" id="mname" placeholder="Middle Name" required />
-				        	<input class="input" type="text" name="lname" id="lname" placeholder="Last Name" required />
+				        	<input class="input" type="text" id="fname" placeholder="First Name" required pattern="[A-Za-z]{3,15}" />
+				        	<input class="input" type="text" id="mname" placeholder="Middle Name" required pattern="[A-Za-z]{3,15}" />
+				        	<input class="input" type="text" id="lname" placeholder="Last Name" required pattern="[A-Za-z]{3,15}" />
 				        </td>
 			       	</tr>
 			       	<tr class="contain">
 			       		<td><b>Date of Birth (DD/MM/YYYY)</b></td>
-			       		<td><input class="input-S" type="Date" name="bday" id="bday" min="2000-01-01" max="2007-01-01" required /></td>
+			       		<td><input class="input-S" type="Date" id="bday" min="2000-01-01" max="2007-01-01" required /></td>
 			       	</tr>
 			       	<tr class="contain">
 				       	<td><b>Gender:</b></td>
 				        <td class="form-inline">
-				        	<input type="radio" name="gender" value="Male"/>Male&nbsp;
-			        		<input type="radio" name="gender" value="Female"/>Female&nbsp;
-			        		<input type="radio" name="gender" value="other"/>Other     
+				        	<input type="radio" name="gender" value="Male" required />Male&nbsp;
+			        		<input type="radio" name="gender" value="Female" />Female&nbsp;
+			        		<input type="radio" name="gender" value="other" />Other     
 			        	</td>
 			        </tr>
 			        <tr class="contain">
 			        	<td><b>Mobile Number</b></td>
 			        	<td class="form-inline">
-			        		<input type="text" class="input" name="pnum" id="pnum" max-length="10" placeholder="Personal Number" required />
-			        		<input type="text" class="input" name="fnum" id="fnum" max-length="10" placeholder="Father's Number" required />
-			        		<input type="text" class="input" name="mnum" id="mnum" max-length="10" placeholder="Mother's Number" required />
+			        		<input type="text" class="input" id="pnum" placeholder="Personal Number" required />
+			        		<span id="lblError1" class="error"></span>
+			        		<input type="text" class="input" id="fnum" placeholder="Father's Number" required />
+			        		<span id="lblError2" class="error"></span>
+			        		<input type="text" class="input" id="mnum" placeholder="Mother's Number" required />
+			        		<span id="lblError3" class="error"></span>
 			        	</td>
 			        </tr>
 			        <tr class="contain">
 			        	<td><b>Aadhar Card Number</b></td>
 			        	<td class="form-inline">
-			        		<input class="input" type="acn" name="acn" id="acn" placeholder="Aadhar Card Number" maxlength="12" required />
-			        		<input type="file" name="acf" id="acf" required />
+			        		<input class="input" type="text" id="acn" placeholder="Aadhar Card Number" pattern="[0-9]{12}" required />
+			        		<input type="file" id="acf" required />
 			        	</td>
 			        </tr>
 			        <tr class="contain">
 			        	<td><b>E-mail I'd</b></td>
-			        	<td><input class="input-S" type="email" name="e-mail" id="e-mail" placeholder="E-mail I'd" required /></td>
+			        	<td><input class="input-S" type="email" id="e-mail" placeholder="E-mail I'd" required /></td>
 			        </tr>
 			        <tr class="contain">
 			        	<td><b>SSC Score</b></td>
 			        	<td class="form-inline">
-			        		<input class="input" type="text" name="sscs" id="sscs" max-length="5" placeholder="SSC Score in %" required />
-			        		<input type="file" name="sscf" id="sscf" required />
+			        		<input class="input" type="text" id="sscs" placeholder="SSC Score in %" required />
+			        		<input type="file" id="sscf" required />
 			        	</td>
 			        </tr>
 			        <tr class="contain">
 			        	<td><b>HSC Score</b></td>
 			        	<td class="form-inline">
-			        		<input class="input" type="text" name="hscs" id="hscs" max-length="5" placeholder="HSC Score in %" required />
-			        		<input type="file" name="hscf" id="hscf" required />
+			        		<input class="input" type="text" id="hscs" placeholder="HSC Score in %" required />
+			        		<input type="file" id="hscf" required />
 			        	</td>
 			        </tr>
 			        <tr class="contain">
 			        	<td><b>MHT-CET Application I'd</b></td>
-			        	<td><input class="input-S" type="text" name="cetid" id="cetid" placeholder="MHT-CET Application I'd" required /></td>
+			        	<td><input class="input-S" type="text" id="cetid" placeholder="MHT-CET Application I'd" required /></td>
 			        </tr>
 			        <tr class="contain">
 			        	<td><b>MHT-CET Score</b></td>
 			        	<td class="form-inline">
-			        		<input class="input" type="text" name="cets" id="cets" placeholder="MHT-CET Score" required />
-			        		<input type="file" name="cetf" id="cetf" required />
+			        		<input class="input" type="text" id="cets" placeholder="MHT-CET Score" required />
+			        		<input type="file" id="cetf" required />
 			        	</td>
 			        </tr>
 			        <tr class="contain">
 			        	<td><b>JEE Application I'd</b></td>
-			        	<td><input class="input-S" type="text" name="jeeid" id="jeeid" placeholder="JEE Application I'd" required /></td>
+			        	<td><input class="input-S" type="text" id="jeeid" placeholder="JEE Application I'd" required /></td>
 			        </tr>
 			        <tr class="contain">
 			        	<td><b>JEE Score</b></td>
 			        	<td class="form-inline">
-			        		<input class="input-S" type="text" name="jees" id="jees" size="5" placeholder="JEE Score" required />
-			        		<input type="file" name="jeef" id="jeef" required />
+			        		<input class="input-S" type="text" id="jees" size="5" placeholder="JEE Score" required />
+			        		<input type="file" id="jeef" required />
 			        	</td>
 			        </tr>
 			        <tr class="contain">
 			        	<td><b>Address</b></td>
 			        	<td class="form-inline">
-			        		<input class="input" type="text" name="addc" id="addc" placeholder="Current City" required />
-			        		<input class="input" type="text" name="addd" id="addd" placeholder="District" required />
-			        		<input class="input" type="text" name="adds" id="adds" placeholder="State" required />
-			        		<input class="input" type="text" name="pin" id="pin" max-length="6" placeholder="PinCode" required />
+			        		<input class="input" type="text" id="addc" placeholder="Current City" required />
+			        		<input class="input" type="text" id="addd" placeholder="District" required />
+			        		<input class="input" type="text" id="adds" placeholder="State" required />
+			        		<input class="input" type="text" id="pin" placeholder="PinCode" required />
 			        	</td>
 			        </tr>
 			        <tr class="contain">
 			        	<td><b>Select Course</b></td>
 			        	<td>
-			        		<select class="input" id="course" name="course" placeholder="Select Course" multiple required>
+			        		<select class="input" id="course" placeholder="Select Course" multiple required>
 			        			<option value="cs">Computer Science & Engineering</option>
 			        			<option value="etc">Electronics & Telecommunication Engineering</option>
 			        			<option value="mech">Mechanical Engineering</option>
@@ -435,14 +455,13 @@
 			        		<p>**Hold down the Ctrl (windows) or Command (Mac) button to select multiple options.**</p>
 			        	</td>
 			        </tr>
-			        <tr>
-			        	<td align="center" colspan="2">
-			        		<input type="submit" class="btn btn-outline-primary" value="Register" />
-			        		<input type="clear" class="btn btn-outline-warning" value="Clear" />
-			        		<div id="submit"></div>
-			        	</td>
-			        </tr>
-		        </table>
+			    </table>
+			    <br><br>
+			    <div align="center" colspan="2">
+			        <input type="submit" class="btn btn-outline-primary" value="Register" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			        <input type="reset" class="btn btn-outline-warning" value="Clear" /><br>
+			    </div>
+			    <br>
 		    </form>
 		</blockquote>
 		<br>
